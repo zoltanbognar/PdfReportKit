@@ -139,7 +139,7 @@ static NSArray * reportDefaultTags = nil;
     return [GRMustache renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError *__autoreleasing *error)
     {
         NSString * renderedTag;
-        if (pageNumber > 1 && [tagName isEqualToString:@"documentHeader"])
+        if (/*pageNumber > 1 &&*/ [tagName isEqualToString:@"documentHeader"])
         {
             renderedTag =  @"";
         }
