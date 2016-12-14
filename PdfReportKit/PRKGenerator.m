@@ -75,7 +75,9 @@ static NSArray * reportDefaultTags = nil;
         UIGraphicsBeginPDFContextToData(currentReportData, CGRectMake(0, 0, 1000, 800), nil);
         
     currentReportItemsPerPage = itemsPerPage;
+    
     NSInteger pagesCount = ceil((double)totalItems / (double)itemsPerPage);
+    
     for (NSInteger i = 0; i < pagesCount; i++)
     {
         [renderedTags removeAllObjects];
@@ -145,7 +147,7 @@ static NSArray * reportDefaultTags = nil;
         }
         else if ([tagName isEqualToString:@"pageNumber"])
         {
-            renderedTag = [NSString stringWithFormat:@"%d", pageNumber];
+            renderedTag = [NSString stringWithFormat:@"%zd", pageNumber];
         }
         else
             renderedTag = [tag renderContentWithContext:context HTMLSafe:HTMLSafe error:error];
@@ -165,7 +167,7 @@ static NSArray * reportDefaultTags = nil;
     else if (sectionType == PRKSectionTypeFooter)
         footerFormatter = formatter;
     else
-        [NSException raise:@"Invalid Section Type" format:@"Section Type: %d is invalid", sectionType];
+        [NSException raise:@"Invalid Section Type" format:@"Section Type: %zd is invalid", sectionType];
 }
 
 - (void)renderPage
