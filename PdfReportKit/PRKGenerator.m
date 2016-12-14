@@ -75,8 +75,8 @@ static NSArray * reportDefaultTags = nil;
         UIGraphicsBeginPDFContextToData(currentReportData, CGRectMake(0, 0, 1000, 800), nil);
         
     currentReportItemsPerPage = itemsPerPage;
-    int pagesCount = totalItems / itemsPerPage;
-    for (int i = 0; i < pagesCount; i++)
+    NSInteger pagesCount = ceil((double)totalItems / (double)itemsPerPage);
+    for (NSInteger i = 0; i < pagesCount; i++)
     {
         [renderedTags removeAllObjects];
         currentReportPage = i + 1;
